@@ -40,12 +40,12 @@ frontend verie-frontend-http
 	http-request set-header X-Forwarded-Proto http
         default_backend verie-backend
 
-frontend tracy-frontend-https
+frontend verie-frontend-https
 	bind *:443 ssl crt /etc/haproxy/certs/www.bestverie.tech.pem
 	http-request set-header X-Forwarded-Proto https
 	default_backend verie-backend
 
-backend tracy-backend
+backend verie-backend
         balance roundrobin
         server 6216-web-01 3.80.43.236:80 check
         server 6216-web-02 34.234.71.80:80 check
